@@ -18,16 +18,18 @@ public class MicroServer {
 
     private static void loadComponents(String[] args) throws ClassNotFoundException {
         //La clase es el argumento 0
-        Class c = Class.forName(args[0]);
+        for (String arg : args) {
+            Class c = Class.forName(arg);
 
-        if(!c.isAnnotationPresent(RestController.class)){
-            System.exit(0);
-        }
+            if(!c.isAnnotationPresent(RestController.class)){
+                System.exit(0);
+            }
 
-        for(Method m : c.getDeclaredMethods()){
-            if (m.isAnnotationPresent(GetMapping.class)) {
-                GetMapping a = m.getAnnotation(GetMapping.class);
-                services.put(a.value(), m);
+            for(Method m : c.getDeclaredMethods()){
+                if (m.isAnnotationPresent(GetMapping.class)) {
+                    GetMapping a = m.getAnnotation(GetMapping.class);
+                    services.put(a.value(), m);
+                }
             }
         }
     }

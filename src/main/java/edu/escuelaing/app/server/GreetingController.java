@@ -9,7 +9,7 @@ public class GreetingController {
     }
 
     @GetMapping("/pi")
-    public static String pi(@RequestParam(value = "name", defaultValue = "World") String name) {
+    public static String pi(@RequestParam(value = "name", defaultValue = "value") String name) {
         return Double.toString(Math.PI);
     }
 
