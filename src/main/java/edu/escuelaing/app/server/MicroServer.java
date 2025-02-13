@@ -42,34 +42,29 @@ public class MicroServer {
             for(Method m : c.getDeclaredMethods()){
                 if (m.isAnnotationPresent(GetMapping.class)) {
                     GetMapping a = m.getAnnotation(GetMapping.class);
-                    //a.value() es la ruta definida en GetMapping hacia el método m
-                    services.put(a.value(), m);
+                    services.put(a.value(), m); //a.value() es la ruta definida en GetMapping hacia el método m
                 }
             }
         }
     }
 
     private static String simulateRequests(String route) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
-        //Para simular una petición, buscamos en el route el metodo/servicio que quiero ejecutar
-        //SI LA PETICIÓN TIENE QUERY, TOCA SEPARAR LA RUTA DEL QUERY
-        String query = "MESSI";
+        //Para simular una petición, buscamos en route el metodo/servicio que quiero ejecutar
+        //SI LA PETICIÓN TIENE QUERY, TOCA SEPARAR LA ROUTE DEL QUERY
+        String query = "MESSI"; //ESTO REEMPLAZA EL defaultValue = "World"
         if (route.contains("?")) {
             query = route.substring(route.indexOf("=")+1);
             route = route.substring(0, route.indexOf("?"));
         }
+
         System.out.println("RUTAAAA: "+ route);
         System.out.println("QUERYYY: "+ query);
-
 
         Method m = services.get(route);
         String response = "\"HTTP/1.1 200 OK\\r\\n\"\n"
                 + "Content-Type: application/json\\r\\n\"\n"
                 + "\r\n" + "{\"resp\":\"" + m.invoke(null, query) + "\"}";
 
-        //En response concatenamos la respuesta del método/servicio m
-        //Aqui le pasamos el parámetro que queremos que muestre PERO ESTO NO ES DINAMICO, TOCA CAMBIARLO
-        //Por ejemplo si la ruta es -> /greeting?name=Pedro -> Hola Pedro
-        //Por ejemplo si la ruta es -> /pi?name=Pedro -> PI (El parámetro no importa porque la implementación no lo usa, siempre retorna PI)
         return response;
     }
 }
