@@ -7,28 +7,42 @@ import java.util.Map;
 
 public class MicroServer {
 
+    //Mapa con ruta del método y el método a ejecutar
+    //Representan todos los servicios que ofrecen las clases @RestController
+    //En este caso solo hay una, si hubieran más clases RestController toca buscarlas por disco
     public static Map<String, Method> services = new HashMap<String, Method>();
 
+    //ESTA IMPLEMENTACIÓN UTILIZA LA CONSOLA PARA MANDARLE LA UBICACIÓN DE LOS COMPONENTES/CONTROLADORES QUE TIENEN LAS ANOTACIONES
+    //String[] args --> args[0] es el main y de ahi en adelante son todos los componentes
+    //java -cp target/classes edu.escuelaing.app.server.MicroServer edu.escuelaing.app.server.GreetingController edu.escuelaing.app.server.MathController
+
     public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
-        loadComponents(args);
+        loadComponents(args); //Va a cargar todos los servicios/métodos de TODOS LOS @RestController que encuentre
         System.out.println(simulateRequests("/greeting"));
         System.out.println(simulateRequests("/pi"));
+        System.out.println(simulateRequests("/pi?name=JOSE")); //El query lo omite por la implementación
         System.out.println(simulateRequests("/e"));
-        //System.out.println(simulateRequests("/greeting?v=diana"));
+        System.out.println(simulateRequests("/e?name=MARTA")); //El query lo omite por la implementación
+        System.out.println(simulateRequests("/greeting?name=DIANAA"));
+        System.out.println(simulateRequests("/greeting?name=DIEGOO"));
     }
 
     private static void loadComponents(String[] args) throws ClassNotFoundException {
-        //La clase es el argumento 0
+        //La clase MAIN es el args[0]
         for (String arg : args) {
-            Class c = Class.forName(arg);
+            System.out.printf("ARG: %s%n", arg);
+            Class c = Class.forName(arg); //Creamos un objeto c de tipo Class que representa la clase args[i]
 
+            //Si la clase cargada NO es un Controlador no seguimos buscando
             if(!c.isAnnotationPresent(RestController.class)){
                 System.exit(0);
             }
 
+            //Si la clase cargada es un Controlador buscamos todos sus metodos ANOTADOS con GetMapping
             for(Method m : c.getDeclaredMethods()){
                 if (m.isAnnotationPresent(GetMapping.class)) {
                     GetMapping a = m.getAnnotation(GetMapping.class);
+                    //a.value() es la ruta definida en GetMapping hacia el método m
                     services.put(a.value(), m);
                 }
             }
@@ -36,10 +50,26 @@ public class MicroServer {
     }
 
     private static String simulateRequests(String route) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
+        //Para simular una petición, buscamos en el route el metodo/servicio que quiero ejecutar
+        //SI LA PETICIÓN TIENE QUERY, TOCA SEPARAR LA RUTA DEL QUERY
+        String query = "MESSI";
+        if (route.contains("?")) {
+            query = route.substring(route.indexOf("=")+1);
+            route = route.substring(0, route.indexOf("?"));
+        }
+        System.out.println("RUTAAAA: "+ route);
+        System.out.println("QUERYYY: "+ query);
+
+
         Method m = services.get(route);
         String response = "\"HTTP/1.1 200 OK\\r\\n\"\n"
                 + "Content-Type: application/json\\r\\n\"\n"
-                + "\r\n" + "{\"resp\":\"" + m.invoke(null, "Pedro") + "\"}";
+                + "\r\n" + "{\"resp\":\"" + m.invoke(null, query) + "\"}";
+
+        //En response concatenamos la respuesta del método/servicio m
+        //Aqui le pasamos el parámetro que queremos que muestre PERO ESTO NO ES DINAMICO, TOCA CAMBIARLO
+        //Por ejemplo si la ruta es -> /greeting?name=Pedro -> Hola Pedro
+        //Por ejemplo si la ruta es -> /pi?name=Pedro -> PI (El parámetro no importa porque la implementación no lo usa, siempre retorna PI)
         return response;
     }
 }
