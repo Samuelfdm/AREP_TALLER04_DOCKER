@@ -6,6 +6,7 @@ public class RunTests {
     public static void main(String[] args) throws Exception {
         int passed = 0, failed = 0;
         for (Method m : Class.forName(args[0]).getMethods()) {
+            //isAnnotationPresent es un metodo de Method para identificar si existe una anotación
             if (m.isAnnotationPresent(Test.class)) {
                 try {
                     m.invoke(null);//no tienen parametros los estaticos

@@ -14,6 +14,7 @@ public class MicroServer {
         System.out.println(simulateRequests("/greeting"));
         System.out.println(simulateRequests("/pi"));
         System.out.println(simulateRequests("/e"));
+        //System.out.println(simulateRequests("/greeting?v=diana"));
     }
 
     private static void loadComponents(String[] args) throws ClassNotFoundException {

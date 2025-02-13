@@ -1,5 +1,7 @@
 package edu.escuelaing.app;
-
+//EJEMPLO DE ANOTACIONES RANDOM
+//SOLO SIRVEN CUANDO YO MISMO CREO UNA FORMA DE IMPLEMENTARLAS
+//EL COMPILADOR DE JAVA ES EL QUE HACE LA MAGIA
 public class Foo {
     @Test
     public static void m1() {

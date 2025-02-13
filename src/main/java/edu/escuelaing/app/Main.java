@@ -11,11 +11,13 @@ public class Main {
     public static void main(String[] args) {
         out.println("Reflexión");
 
-        Class c1 = String.class; //Objeto de tipo clase que representa la clase
+        Class c1 = String.class; //Objeto de tipo Class que representa la clase String
         Class c2 = "Ejemplo".getClass(); //Otra forma de hacerlo
 
-        printMembers(c1.getDeclaredConstructors(), "Constructors");
-        printMembers(c2.getConstructors(), "Constructors");
+        //Imprime los que están escritos en la clase y los privados
+        printMembers(c1.getDeclaredConstructors(), "Declared Constructors");
+        //Imprime los que están escritos en la clase, los heredados de otras clases Y NO LOS PRIVADOS
+        printMembers(c2.getConstructors(), "All Constructors");
     }
 
     public static void printMembers(Member[] mbrs, String s) {
