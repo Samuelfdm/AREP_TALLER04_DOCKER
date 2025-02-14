@@ -132,6 +132,8 @@ Para ejecutar las pruebas, utiliza el siguiente comando:
 
     mvn test
 
+![img_1.png](img_1.png)
+
 Contribuciones
 --------------
 
