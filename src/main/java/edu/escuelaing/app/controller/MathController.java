@@ -1,6 +1,10 @@
-package edu.escuelaing.app.server;
+package edu.escuelaing.app.controller;
 
-//La ruta hacia este controlador es: edu.escuelaing.app.server.MathController
+import edu.escuelaing.app.annotations.GetMapping;
+import edu.escuelaing.app.annotations.RequestParam;
+import edu.escuelaing.app.annotations.RestController;
+
+//La ruta hacia este controlador es: edu.escuelaing.app.controller.MathController
 @RestController
 public class MathController {
 

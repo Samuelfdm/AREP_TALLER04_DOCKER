@@ -1,6 +1,10 @@
-package edu.escuelaing.app.server;
+package edu.escuelaing.app.controller;
 
-//La ruta hacia este controlador es: edu.escuelaing.app.server.GreetingController
+import edu.escuelaing.app.annotations.GetMapping;
+import edu.escuelaing.app.annotations.RequestParam;
+import edu.escuelaing.app.annotations.RestController;
+
+//La ruta hacia este controlador es: edu.escuelaing.app.controller.GreetingController
 @RestController
 public class GreetingController {
     //Requisito: Todos los métodos deben ser static, devuelven un String y tienen un solo párametro tipo String

@@ -1,4 +1,4 @@
-package edu.escuelaing.app.server;
+package edu.escuelaing.app.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,8 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.PARAMETER)//Para anotar solo parámetros
-public @interface RequestParam {
+@Target(ElementType.METHOD) //Para anotar solo Métodos
+public @interface GetMapping {
     String value();
-    String defaultValue();
 }
