@@ -18,4 +18,9 @@ public class GreetingController {
     public static String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
         return "{\"name\": \"" + name + "\"}";
     }
+
+    @GetMapping("/")
+    public static String raiz(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return "PÁGINA RAIZ EN PROGRESO...xd - busca /prueba.html";
+    }
 }

@@ -5,7 +5,6 @@ import edu.escuelaing.app.annotations.RestController;
 import edu.escuelaing.app.server.HttpServer;
 import edu.escuelaing.app.server.Service;
 import edu.escuelaing.app.server.StaticFileHandler;
-
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URI;
@@ -34,7 +33,7 @@ public class MicroServer {
         }
     }
 
-    private static void loadComponents(List<String> classes) {
+    public static void loadComponents(List<String> classes) {
         for (String className : classes) {
             try {
                 Class<?> c = Class.forName(className);
