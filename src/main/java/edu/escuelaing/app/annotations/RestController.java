@@ -8,5 +8,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME) // en tiempo de ejecución
 @Target(ElementType.TYPE) //Para anotar solo clases
 public @interface RestController {
-
 }
