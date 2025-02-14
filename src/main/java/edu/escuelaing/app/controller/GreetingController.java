@@ -9,10 +9,13 @@ import edu.escuelaing.app.annotations.RestController;
 public class GreetingController {
     //Requisito: Todos los métodos deben ser static, devuelven un String y tienen un solo párametro tipo String
 
-    //EJ: /greeting --> Hola World
-    //EJ: /greeting?name=Samuel --> Hola Samuel
     @GetMapping("/greeting")
     public static String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return "Hola " + name;
+    }
+
+    @GetMapping("/hello")
+    public static String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return "{\"name\": \"" + name + "\"}";
     }
 }

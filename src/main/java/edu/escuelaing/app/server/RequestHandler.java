@@ -46,7 +46,7 @@ public class RequestHandler {
                 path = pathAndQuery[0];
                 req.setQueryParams(pathAndQuery[1]);
             }
-
+            System.out.println(path);
             // Intentar manejar la solicitud con el Router (IoC)
             String response = Router.handleRequest(path, req);
             if (response != null) {

@@ -14,7 +14,7 @@ import java.util.*;
 
 public class MicroServer {
 
-    private static final Map<String, Service> services = new HashMap<>();
+    public static final Map<String, Service> services = new HashMap<>();
 
     public static void main(String[] args) {
         try {
