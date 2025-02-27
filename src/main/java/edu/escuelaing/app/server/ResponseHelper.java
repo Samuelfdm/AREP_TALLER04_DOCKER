@@ -20,6 +20,7 @@ public class ResponseHelper {
     public static String getContentType(String fileName) {
         if (fileName.endsWith(".html")) return "text/html";
         if (fileName.endsWith(".css")) return "text/css";
+        if (fileName.endsWith(".txt")) return "text/plain";
         if (fileName.endsWith(".js")) return "application/javascript";
         if (fileName.endsWith(".png")) return "image/png";
         if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg")) return "image/jpeg";

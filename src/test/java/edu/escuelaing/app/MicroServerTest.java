@@ -3,7 +3,6 @@ package edu.escuelaing.app;
 import edu.escuelaing.app.annotations.GetMapping;
 import edu.escuelaing.app.annotations.RestController;
 import edu.escuelaing.app.server.Service;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -13,22 +12,16 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MicroServerTest {
-    private MicroServer microServer;
-
-    @BeforeEach
-    void setUp() {
-        microServer = new MicroServer();
-    }
 
     @Test
     void testRegisterController() throws NoSuchMethodException {
         // Cargamos un componente especifico de prueba
         List<String> classes = new ArrayList<>();
         classes.add("edu.escuelaing.app.MicroServerTest$TestController"); // Clase completa con el paquete
-        microServer.loadComponents(classes);
+        MicroServer.loadComponents(classes);
 
         // Obtener el mapa de rutas registradas
-        Map<String, Service> routes = microServer.getServices();
+        Map<String, Service> routes = MicroServer.getServices();
 
         // Verificamos que la ruta /test esté registrada
         assertTrue(routes.containsKey("/test"), "La ruta /test debería estar registrada.");

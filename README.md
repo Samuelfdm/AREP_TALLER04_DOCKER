@@ -51,15 +51,17 @@ Accede a http://localhost:35000/e para mostrar el valor de EULER
 
 ![img.png](src/main/resources/img/img.png)
 
-*   **Página principal**: http://localhost:35000/prueba.html
+*   **Página principal**: http://localhost:35000/static/prueba.html
 
-*   **Archivo JavaScript**: http://localhost:35000/javascript.js
+*   **Archivo JavaScript**: http://localhost:35000/static/javascript.js
 
-*   **Archivo CSS**: http://localhost:35000/style.css
+*   **Archivo de Texto**: http://localhost:35000/static/text.txt
 
-*   **Imágenes PNG**: http://localhost:35000/images/imagen1.png
+*   **Archivo CSS**: http://localhost:35000/static/style.css
 
-*   **Imágenes JPG**: http://localhost:35000/images/imagen2.jpg
+*   **Imágenes PNG**: http://localhost:35000/img/imagen1.png
+
+*   **Imágenes JPG**: http://localhost:35000/img/imagen2.jpg
 
 El servidor escucha en el puerto 35000 por defecto.
 
@@ -113,25 +115,41 @@ Cuando el usuario hace una solicitud HTTP a MicroSpring, el flujo de ejecución 
 4. El método del controlador se ejecuta y devuelve una respuesta.
 5. El ResponseHelper genera la respuesta y la envía de vuelta al cliente.
 
+Docker y despliege en AWS
+-------
+
+
 
 Pruebas
 -------
 
 Se han realizado pruebas unitarias para asegurar el correcto funcionamiento de cada componente. Las pruebas incluyen:
 
+*   **Pruebas de MicroServer**: Verifican que se cargen los componentes correctamente.
+
+![img_3.png](src/main/resources/img/img_3.png)
+
 *   **Pruebas de HttpServer**: Verifican que el servidor pueda iniciar y aceptar conexiones.
+
+![img_4.png](src/main/resources/img/img_4.png)
 
 *   **Pruebas de RequestHandler**: Aseguran que las solicitudes HTTP sean procesadas correctamente.
 
+![img_5.png](src/main/resources/img/img_5.png)
+
 *   **Pruebas de StaticFileHandler**: Comprueban que los archivos estáticos sean servidos adecuadamente.
 
+![img_6.png](src/main/resources/img/img_6.png)
+
 *   **Pruebas de ResponseHelper**: Validan que las respuestas HTTP sean construidas correctamente.
+
+![img_7.png](src/main/resources/img/img_7.png)
 
 Para ejecutar las pruebas, utiliza el siguiente comando:
 
     mvn test
 
-![img_1.png](src/main/resources/img/img_1.png)
+![img_1.png](src/main/resources/img/img_2.png)
 
 Contribuciones
 --------------

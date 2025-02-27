@@ -23,7 +23,7 @@ class StaticFileHandlerTest {
 
     @Test
     void testServeExistingFile() throws IOException {
-        String resourcePath = "static/test.txt"; // Asegúrate de que este archivo existe en src/test/resources/
+        String resourcePath = "static/test.txt";
         boolean result = StaticFileHandler.serve(resourcePath, outputStream, writer);
 
         String response = outputStream.toString();
