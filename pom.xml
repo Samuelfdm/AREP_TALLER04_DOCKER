@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>edu.escuelaing.app</groupId>
-    <artifactId>MicroSpring</artifactId>
+    <artifactId>MicroSpringDocker</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>MicroSpring</name>
+    <name>MicroSpringDocker</name>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>

@@ -18,7 +18,7 @@ public class MicroServer {
     public static void main(String[] args) {
         try {
             // Configurar la ubicación de los archivos estáticos
-            StaticFileHandler.staticfiles("./src/main/resources/static");
+            StaticFileHandler.staticfiles("./src/main/resources");
 
             // Buscar y cargar automáticamente los controladores anotados
             List<String> classes = getClasses("edu.escuelaing.app.controller");
@@ -60,10 +60,6 @@ public class MicroServer {
         }
     }
 
-    public static Map<String, Service> getServices() {
-        return services;
-    }
-
     public static List<String> getClasses(String packageName) {
         List<String> classNames = new ArrayList<>();
         try {
@@ -87,5 +83,9 @@ public class MicroServer {
             e.printStackTrace();
         }
         return classNames;
+    }
+
+    public static Map<String, Service> getServices() {
+        return services;
     }
 }

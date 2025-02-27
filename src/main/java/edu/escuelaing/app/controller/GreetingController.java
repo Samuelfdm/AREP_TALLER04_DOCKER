@@ -3,6 +3,7 @@ package edu.escuelaing.app.controller;
 import edu.escuelaing.app.annotations.GetMapping;
 import edu.escuelaing.app.annotations.RequestParam;
 import edu.escuelaing.app.annotations.RestController;
+import edu.escuelaing.app.server.StaticFileHandler;
 
 //La ruta hacia este controlador es: edu.escuelaing.app.controller.GreetingController
 @RestController

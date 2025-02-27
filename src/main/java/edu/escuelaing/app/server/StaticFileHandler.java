@@ -3,7 +3,7 @@ package edu.escuelaing.app.server;
 import java.io.*;
 
 public class StaticFileHandler {
-    private static String basePath = "./src/main/resources/static";
+    private static String basePath = "./src/main/resources";
 
     public static void staticfiles(String path) {
         basePath = path;

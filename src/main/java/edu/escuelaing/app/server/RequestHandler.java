@@ -8,14 +8,15 @@ import edu.escuelaing.app.server.StaticFileHandler;
 import java.io.*;
 import java.net.Socket;
 
-public class RequestHandler {
+public class RequestHandler implements Runnable {
     private final Socket clientSocket;
 
     public RequestHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
     }
 
-    public void handle() {
+    @Override
+    public void run() {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
              OutputStream out = clientSocket.getOutputStream();
              PrintWriter writer = new PrintWriter(out, true)) {

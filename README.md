@@ -1,15 +1,14 @@
-# Taller MicroServerIOC
+# Taller de de modularización con virtualización e Introducción a Docker
 
-Para este taller tuvimos que construir un servidor Web (tipo Apache) en Java capaz de entregar páginas html e imágenes tipo PNG o JPG. Igualmente el servidor debia proveer un framework IoC para la construcción de aplicaciones web a partir de POJOS. El servidor atiende múltiples solicitudes no concurrentes.
-
+El taller consiste en mejorar nuestro framework para hacerlo concurrente y que se pueda apagar de manera elegante. Una vez tengamos esta aplicación procederemos a construir un container de docker para la aplicación y lo desplegaremos en nuestra máquina local. Luego, crearemos un repositorio en DockerHub y subiremos la imagen al repositorio. Finalmente, crearemos una máquina virtual de en AWS, instalaremos Docker , y desplegaremos el contenedor que acabamos de crear.
 ## Instalación
 
 Para instalar y ejecutar este proyecto, sigue los siguientes pasos:
 
 1. **Clona el repositorio:**:
    ```bash
-   git clone https://github.com/Samuelfdm/TallerMicroServerIOC.git
-   cd MicroSpring
+   git clone https://github.com/Samuelfdm/AREP_TALLER04_DOCKER.git
+   cd AREP_TALLER04_DOCKER
 
 2. **Compila y empaqueta el proyecto:**
 Asegúrate de tener Maven instalado y ejecuta:
@@ -50,7 +49,7 @@ Accede a http://localhost:35000/e para mostrar el valor de EULER
 
 **Muestra de funcionamiento prueba.html:**
 
-![img.png](img.png)
+![img.png](src/main/resources/img/img.png)
 
 *   **Página principal**: http://localhost:35000/prueba.html
 
@@ -132,7 +131,7 @@ Para ejecutar las pruebas, utiliza el siguiente comando:
 
     mvn test
 
-![img_1.png](img_1.png)
+![img_1.png](src/main/resources/img/img_1.png)
 
 Contribuciones
 --------------
