@@ -118,7 +118,8 @@ Cuando el usuario hace una solicitud HTTP a MicroSpring, el flujo de ejecución 
 Concurrencia y apagado elegante
 -------
 
-* 
+* Se registra un Shutdown Hook con Runtime.getRuntime().addShutdownHook().
+* Ahora, si el proceso es terminado desde fuera (Ctrl+C, kill, Docker stop, etc.), el servidor se detiene correctamente cerrando hilos, liberando recursos o guardando estados pendientes..
 
 ![img_8.png](src/main/resources/static/img/img_8.png)
 
@@ -129,7 +130,9 @@ Concurrencia y apagado elegante
 Docker y despliege en AWS
 -------
 
+[gif.mp4](src%2Fmain%2Fresources%2Fstatic%2Fvideo%2Fgif.mp4)
 
+[video.mp4](src%2Fmain%2Fresources%2Fstatic%2Fvideo%2Fvideo.mp4)
 
 Pruebas
 -------
