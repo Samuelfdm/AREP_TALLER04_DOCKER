@@ -115,6 +115,17 @@ Cuando el usuario hace una solicitud HTTP a MicroSpring, el flujo de ejecución 
 4. El método del controlador se ejecuta y devuelve una respuesta.
 5. El ResponseHelper genera la respuesta y la envía de vuelta al cliente.
 
+Concurrencia y apagado elegante
+-------
+
+* 
+
+![img_8.png](src/main/resources/static/img/img_8.png)
+
+* RequestHandler ahora implementa Runnable y sobreeescribe el método run() para manejar cada hilo de solicitud
+
+![img_9.png](src/main/resources/static/img/img_9.png)
+
 Docker y despliege en AWS
 -------
 

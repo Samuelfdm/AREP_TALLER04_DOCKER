@@ -7,11 +7,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class HttpServer {
-    private static final int PORT = 35000;
+    private static final int PORT = getPort();
     private boolean running = true;
     private final ExecutorService executorService = Executors.newFixedThreadPool(10);
 
     public void start() {
+        Runtime.getRuntime().addShutdownHook(new Thread(this::stop));
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             System.out.println("Servidor iniciado en el puerto " + PORT);
             while (running) {
@@ -29,5 +30,13 @@ public class HttpServer {
         running = false;
         executorService.shutdown();
         System.out.println("Servidor detenido.");
+    }
+
+    private static int getPort() {
+        String port = System.getenv("PORT");
+        if (port != null) {
+            return Integer.parseInt(port);
+        }
+        return 35000; // Puerto por defecto en caso de no estar definido en la variable de entorno
     }
 }
