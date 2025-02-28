@@ -130,7 +130,62 @@ Concurrencia y apagado elegante
 Docker y despliege en AWS
 -------
 
+**Creamos la imagen docker y verificamos la lista de imagenes**
+
+![img_10.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_10.png)
+
+![img_11.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_11.png)
+
+**A partir de la imagen creada creamos una instancia de un contenedor docker**
+
+![img_12.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_12.png)
+
+**Creamos un repositorio en Docker Hub para poder subir la imagen que creamos**
+
+![img_13.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_13.png)
+
+![img_14.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_14.png)
+
+**Creamos la instancia de EC2**
+
+![img_15.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_15.png)
+
+![img_16.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_16.png)
+
+**Lanzamos la instancia**
+
+![img_17.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_17.png)
+
+**Antes de lanzarla hay que asegurarse de añadir en seguridad el grupo con los puertos que requerimos**
+
+![img_18.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_18.png)
+
+**Podemos usar ssh o la consola interna que nos ofrece AWS**
+
+![img_19.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_19.png)
+
+![img_20.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_20.png)
+
+![img_21.png](src%2Fmain%2Fresources%2Fstatic%2Fimg%2Fimg_21.png)
+
+****VIDEO - PRUEBAS DE FUNCIONAMIENTO DEL DESPLIEGE****
+
+
 ![video.gif](src%2Fmain%2Fresources%2Fstatic%2Fvideo%2Fvideo.gif)
+
+
+**Para probar el servicio puedes usar las siguientes rutas de prueba**
+
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/static/prueba.html
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/static/javascript.js
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/static/style.css
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/static/img/imagen1.png
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/static/img/imagen2.jpg
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/greeting?name=SAMUELL
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/greeting
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/pi
+* http://ec2-35-174-172-199.compute-1.amazonaws.com:35000/e
+
 
 Pruebas
 -------
