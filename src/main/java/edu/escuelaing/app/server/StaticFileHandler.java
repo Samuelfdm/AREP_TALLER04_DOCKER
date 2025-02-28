@@ -3,16 +3,17 @@ package edu.escuelaing.app.server;
 import java.io.*;
 
 public class StaticFileHandler {
-    private static String basePath = "./src/main/resources";
+    private static String basePath = "/usrapp/bin/src/main/resources";
 
     public static void staticfiles(String path) {
         basePath = path;
     }
 
     public static boolean serve(String resourcePath, OutputStream out, PrintWriter writer) {
-        System.out.println("ENTRO Serving " + basePath + resourcePath);
         File file = new File(basePath + resourcePath);
+        System.out.println("Buscando archivo en: " + file.getAbsolutePath());
         if (file.exists() && file.isFile()) {
+            System.out.println("Archivo encontrado: " + file.getAbsolutePath());
             try (FileInputStream fis = new FileInputStream(file)) {
                 String contentType = ResponseHelper.getContentType(file.getName());
                 out.write(("HTTP/1.1 200 OK\r\nContent-Type: " + contentType + "\r\n\r\n").getBytes());

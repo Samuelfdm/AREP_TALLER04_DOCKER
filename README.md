@@ -49,7 +49,7 @@ Accede a http://localhost:35000/e para mostrar el valor de EULER
 
 **Muestra de funcionamiento prueba.html:**
 
-![img.png](src/main/resources/img/img.png)
+![img.png](src/main/resources/static/img/img.png)
 
 *   **Página principal**: http://localhost:35000/static/prueba.html
 
@@ -127,29 +127,29 @@ Se han realizado pruebas unitarias para asegurar el correcto funcionamiento de c
 
 *   **Pruebas de MicroServer**: Verifican que se cargen los componentes correctamente.
 
-![img_3.png](src/main/resources/img/img_3.png)
+![img_3.png](src/main/resources/static/img/img_3.png)
 
 *   **Pruebas de HttpServer**: Verifican que el servidor pueda iniciar y aceptar conexiones.
 
-![img_4.png](src/main/resources/img/img_4.png)
+![img_4.png](src/main/resources/static/img/img_4.png)
 
 *   **Pruebas de RequestHandler**: Aseguran que las solicitudes HTTP sean procesadas correctamente.
 
-![img_5.png](src/main/resources/img/img_5.png)
+![img_5.png](src/main/resources/static/img/img_5.png)
 
 *   **Pruebas de StaticFileHandler**: Comprueban que los archivos estáticos sean servidos adecuadamente.
 
-![img_6.png](src/main/resources/img/img_6.png)
+![img_6.png](src/main/resources/static/img/img_6.png)
 
 *   **Pruebas de ResponseHelper**: Validan que las respuestas HTTP sean construidas correctamente.
 
-![img_7.png](src/main/resources/img/img_7.png)
+![img_7.png](src/main/resources/static/img/img_7.png)
 
 Para ejecutar las pruebas, utiliza el siguiente comando:
 
     mvn test
 
-![img_1.png](src/main/resources/img/img_2.png)
+![img_1.png](src/main/resources/static/img/img_2.png)
 
 Contribuciones
 --------------

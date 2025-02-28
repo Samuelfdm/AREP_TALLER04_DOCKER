@@ -18,7 +18,7 @@ public class MicroServer {
     public static void main(String[] args) {
         try {
             // Configurar la ubicación de los archivos estáticos
-            StaticFileHandler.staticfiles("./src/main/resources");
+            StaticFileHandler.staticfiles("/usrapp/bin/src/main/resources");
 
             // Buscar y cargar automáticamente los controladores anotados
             List<String> classes = getClasses("edu.escuelaing.app.controller");
