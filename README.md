@@ -130,9 +130,7 @@ Concurrencia y apagado elegante
 Docker y despliege en AWS
 -------
 
-[gif.mp4](src%2Fmain%2Fresources%2Fstatic%2Fvideo%2Fgif.mp4)
-
-[video.mp4](src%2Fmain%2Fresources%2Fstatic%2Fvideo%2Fvideo.mp4)
+![video.gif](src%2Fmain%2Fresources%2Fstatic%2Fvideo%2Fvideo.gif)
 
 Pruebas
 -------
